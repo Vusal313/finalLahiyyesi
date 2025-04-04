@@ -1,0 +1,179 @@
+.header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  .header__sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+    padding: 20px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #152420;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      margin-right: 0.5rem;
+      color: #152420;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    font-size: 1rem;
+    margin-left: 50px;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+      font-size: 1.1rem;
+      margin-left: 20px;
+      &:hover {
+        color: #152420;
+      }
+    }
+  }
+
+  /* Kategoriler */
+  .header__categories {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    padding: 10px;
+    width: 97%;
+    margin-left: 10px;
+
+    &.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  &__items {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  /* Adres Bölümü */
+  .header_adress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    margin-left: 50px;
+    .adress {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 18px;
+      color: #333;
+      margin-left: 10px;
+
+      svg {
+        width: 20px;
+        color: gray;
+        padding: 10px;
+        border-radius: 50%;
+        border: 1px solid rgb(190, 190, 190);
+        cursor: pointer;
+      }
+
+      h2 {
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.9rem;
+        margin: 0;
+        color: #555;
+      }
+    }
+  }
+
+  .header__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    svg {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 16px;
+      color: rgb(100, 100, 100);
+      transition: color 0.3s;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+  }
+
+  .searchh {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid gray;
+    margin-left: 2rem;
+    border-radius: 20px;
+    padding: 5px 15px 5px 5px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      color: gray;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+
+    input {
+      width: 100%;
+      margin-left: 1rem;
+      padding: 0.5rem;
+      border: none;
+      outline: none;
+      transition: 0.3s;
+    }
+  }
+}
