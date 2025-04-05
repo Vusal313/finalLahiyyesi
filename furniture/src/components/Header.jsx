@@ -1,25 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaWarehouse, FaRegUserCircle, FaRegHeart, FaShoppingBag, FaSearch } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShuffle } from "@fortawesome/free-solid-svg-icons";
-import {
-  FaChair,
-  FaCouch,
-  FaBed,
-  FaTable,
-  FaWarehouse,
-  FaDharmachakra,
-  FaLocationArrow,
-  FaPhone,
-  FaRegUserCircle,
-  FaRegHeart,
-  FaShoppingBag,
-  FaSearch,
-} from "react-icons/fa";
-import { MdOutlineLocalFlorist } from "react-icons/md";
+import { faShuffle, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../components/Header.scss";
+
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,86 +17,55 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
-    <header className="header" >
-      <div  className={`header__sticky ${isSticky ? "sticky" : ""}`}>
-        <div className="header__top">
+    <header className="header">
+      <div className={`header__sticky ${isSticky ? "sticky" : ""}`}>
+        <div className="header__container">
           <div className="header__logo">
-            <FaWarehouse /> Furniture
-            <div className="searchh">
-              <input
-                type="text"
-                placeholder="Search"
-                className="header__search"
-              />
-              <FaSearch />
-            </div>
+            <FaWarehouse />
+            Furniture
           </div>
-          <nav className="header__menu">
+
+          <div className="search-box">
+            <input type="text" placeholder="Search" />
+            <FaSearch />
+          </div>
+
+          <div className="header__menu">
             <Link to="/">Home</Link>
             <Link to="/Shop">Shop</Link>
             <Link to="/About">About Us</Link>
             <Link to="/News">News</Link>
             <Link to="/Contact">Contact Us</Link>
-          </nav>
+          </div>
+
           <div className="header__icons">
-            <div className="header__icon">
-              <FaRegUserCircle />
-            </div>
-            <div className="header__icon">
-              <FaRegHeart />
-            </div>
-            <div className="header__icon">
-              <FontAwesomeIcon icon={faShuffle} />
-            </div>
-            <div className="header__icon">
-              <FaShoppingBag />
-            </div>
+            <div className="icon"><FaRegUserCircle /></div>
+            <div className="icon"><FaRegHeart /></div>
+            <div className="icon"><FontAwesomeIcon icon={faShuffle} /></div>
+            <div className="icon"><FaShoppingBag /></div>
+          </div>
+
+          <div className="mobile-toggle" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={faBars} />
           </div>
         </div>
       </div>
-      <div className={`header__categories ${isSticky ? "hidden" : ""}`}>
-        <div className="header__items">
-          <div className="header__item">
-            <FaChair /> Chairs
-          </div>
-          <div className="header__item">
-            <FaWarehouse /> Storage
-          </div>
-          <div className="header__item">
-            <FaDharmachakra /> Armchairs
-          </div>
-          <div className="header__item">
-            <FaCouch /> Sofas
-          </div>
-          <div className="header__item">
-            <FaBed /> Beds
-          </div>
-          <div className="header__item">
-            <FaTable /> Tables
-          </div>
-          <div className="header__item">
-            <MdOutlineLocalFlorist /> Decor
-          </div>
-        </div>
 
-        {/* Adres Bilgileri */}
-        <div className="header_adress">
-          <div className="adress">
-            <FaLocationArrow />
-            <div>
-              <h2>Address:</h2>
-              <p>Street Name, NY 38954</p>
-            </div>
-          </div>
-          <div className="adress">
-            <FaPhone />
-            <div>
-              <h2>Phone:</h2>
-              <p>+578-393-4937</p>
-            </div>
-          </div>
+      {/* Mobil / Tablet Menü Paneli */}
+      <div className={`mobile-nav-panel ${mobileMenuOpen ? "active" : ""}`}>
+        <div className="close-btn" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faXmark} />
         </div>
+        <Link to="/" onClick={toggleMenu}>Home</Link>
+        <Link to="/Shop" onClick={toggleMenu}>Shop</Link>
+        <Link to="/About" onClick={toggleMenu}>About Us</Link>
+        <Link to="/News" onClick={toggleMenu}>News</Link>
+        <Link to="/Contact" onClick={toggleMenu}>Contact Us</Link>
       </div>
     </header>
   );
