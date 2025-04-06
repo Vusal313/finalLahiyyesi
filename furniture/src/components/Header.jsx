@@ -1,13 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaWarehouse, FaRegUserCircle, FaRegHeart, FaShoppingBag, FaSearch } from "react-icons/fa";
+import {
+  FaWarehouse,
+  FaRegUserCircle,
+  FaRegHeart,
+  FaSearch,
+} from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShuffle, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import ShoppingCartDrawer from "../components/ShoppingCartDrawer"; 
 import "../components/Header.scss";
 
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const searchBoxRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +22,33 @@ export default function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (searchBoxRef.current && !searchBoxRef.current.contains(e.target)) {
+        searchBoxRef.current.classList.remove("active");
+      }
+    };
+
+    const handleClickInside = () => {
+      if (searchBoxRef.current) {
+        searchBoxRef.current.classList.add("active");
+      }
+    };
+
+    const box = searchBoxRef.current;
+    if (box) {
+      box.addEventListener("click", handleClickInside);
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      if (box) {
+        box.removeEventListener("click", handleClickInside);
+      }
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -30,7 +64,7 @@ export default function Header() {
             Furniture
           </div>
 
-          <div className="search-box">
+          <div className="search-box" ref={searchBoxRef}>
             <input type="text" placeholder="Search" />
             <FaSearch />
           </div>
@@ -43,29 +77,48 @@ export default function Header() {
             <Link to="/Contact">Contact Us</Link>
           </div>
 
-          <div className="header__icons">
-            <div className="icon"><FaRegUserCircle /></div>
-            <div className="icon"><FaRegHeart /></div>
-            <div className="icon"><FontAwesomeIcon icon={faShuffle} /></div>
-            <div className="icon"><FaShoppingBag /></div>
-          </div>
+          <div className="header__right">
+            <div className="header__icons">
+              <div className="icon hide-mobile">
+                <FaRegUserCircle />
+              </div>
+              <div className="icon ">
+                <FaRegHeart />
+              </div>
+              <div className="icon hide-mobile  ">
+                <FontAwesomeIcon icon={faShuffle} />
+              </div>
+              <div className="icon">
+                <ShoppingCartDrawer /> 
+              </div>
+            </div>
 
-          <div className="mobile-toggle" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars} />
+            <div className="mobile-toggle" onClick={toggleMenu}>
+              <FontAwesomeIcon icon={faBars} />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobil / Tablet Menü Paneli */}
       <div className={`mobile-nav-panel ${mobileMenuOpen ? "active" : ""}`}>
         <div className="close-btn" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faXmark} />
         </div>
-        <Link to="/" onClick={toggleMenu}>Home</Link>
-        <Link to="/Shop" onClick={toggleMenu}>Shop</Link>
-        <Link to="/About" onClick={toggleMenu}>About Us</Link>
-        <Link to="/News" onClick={toggleMenu}>News</Link>
-        <Link to="/Contact" onClick={toggleMenu}>Contact Us</Link>
+        <Link to="/" onClick={toggleMenu}>
+          Home
+        </Link>
+        <Link to="/Shop" onClick={toggleMenu}>
+          Shop
+        </Link>
+        <Link to="/About" onClick={toggleMenu}>
+          About Us
+        </Link>
+        <Link to="/News" onClick={toggleMenu}>
+          News
+        </Link>
+        <Link to="/Contact" onClick={toggleMenu}>
+          Contact Us
+        </Link>
       </div>
     </header>
   );
