@@ -4,6 +4,7 @@ import ProductCard from "../pages/products/ProductCard";
 import products from "../pages/js/products.js";
 import product from "../pages/js/product.js";
 import Productfurniture from "../pages/products/Productfurniture.jsx";
+import CardList from "../pages/products/CardList.jsx";
 export default function Home() {
   return (
     <div className="container-home">
@@ -137,6 +138,22 @@ export default function Home() {
             <Productfurniture key={product.id} product={product} />
           ))}
         </div>
+      </div>
+
+      <CardList />
+
+
+
+      <div className="luxurious-container">
+        <div className="luxurious-left">
+          <h1>
+          Luxurious Furniture Starts with the Best Quality Materials
+          </h1>
+          <p>Donec et odio pellentesque diam volutpat commodo amet consectetur adipiscing elit ut aliquam purus vitae et leo duis ut diam quam nulla porttitor. Sodales ut eu sem integer vitae justo eget magna.</p>
+
+          <button>Learn More</button>
+        </div>
+        <div className="luxurious-right"></div>
       </div>
     </div>
   );
