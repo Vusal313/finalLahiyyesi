@@ -2,7 +2,8 @@ import React from "react";
 import "./Home.scss";
 import ProductCard from "../pages/products/ProductCard";
 import products from "../pages/js/products.js";
-
+import product from "../pages/js/product.js";
+import Productfurniture from "../pages/products/Productfurniture.jsx";
 export default function Home() {
   return (
     <div className="container-home">
@@ -91,26 +92,50 @@ export default function Home() {
 
         <div className="room_right">
           <div className="top_img">
-          <img
+            <img
               src={require("../assets/browse-by-rooms-image-2-1.webp")}
               alt="#"
             />
+            <div className="living">
+              <h4>Living Room</h4>
+              <p>15 products</p>
+            </div>
           </div>
           <div className="botoom_img">
             <div className="images">
-            <img
-              src={require("../assets/browse-by-rooms-image-3.webp")}
-              alt="#"
-            />
+              <img
+                src={require("../assets/browse-by-rooms-image-3.webp")}
+                alt="#"
+              />
+              <div className="living">
+                <h4>Living Room</h4>
+                <p>15 products</p>
+              </div>
             </div>
             <div className="images">
-            <img
-              src={require("../assets/browse-by-rooms-image-4-1.webp")}
-              alt="#"
-            />
+              <img
+                src={require("../assets/browse-by-rooms-image-4-1.webp")}
+                alt="#"
+              />
+              <div className="living">
+                <h4>Living Room</h4>
+                <p>15 products</p>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
 
+      <div className="home__bestsellers">
+        <h2>Top selling furniture</h2>
+        <p>
+          Quam elementum pulvinar etiam non quam. Faucibus nisl tincidunt eget
+          nullam non nisi elementum sagittis vitae et leo duis ut diam quam.
+        </p>
+        <div className="product-grid">
+          {product.map((product) => (
+            <Productfurniture key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </div>
