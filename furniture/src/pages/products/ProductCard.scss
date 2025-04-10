@@ -1,0 +1,106 @@
+.modernCard {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+
+  .imageBox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &:hover{
+      img{
+        scale: 1.1;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      transition: 0.3s ease all ;
+    }
+
+    .iconGroup {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      button {
+        background: #f5f5f5;
+        border: none;
+        border-radius: 50%;
+        padding: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background-color: #123836;
+          svg {
+            color: #FFF;
+          }
+        }
+
+      }
+    }
+  }
+
+  .content {
+    padding: 16px;
+    text-align: center;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 4px;
+    }
+
+    .category {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+
+      .price {
+        font-weight: 600;
+        color: #2d3436;
+      }
+
+      .addBtn {
+        background: none;
+        border: none;
+        color: #2d3436;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #123836;
+
+        }
+      }
+    }
+  }
+}
