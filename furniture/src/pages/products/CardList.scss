@@ -3,7 +3,6 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   margin-block: 30px;
   color: #fefefe;
 }
@@ -12,10 +11,8 @@
   display: flex;
   width: 400px;
   height: 200px;
-  border: 1px solid #ccc;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #fefefe;
   padding: 20px;
 }
 
@@ -181,6 +178,99 @@
         height: 100%;
         object-fit: cover;
       }
+    }
+  }
+}
+
+@media (max-width: 1115px) and (min-width: 860px) {
+  .card-list {
+    width: 90%;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      width: 280px;
+      height: 380px;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .card-content {
+      padding: 0;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 0;
+      margin-top: 20px;
+      gap: 20px;
+    }
+    .card-content button {
+      padding: 16px 11px;
+      width: 130px;
+    }
+  }
+
+  .special {
+    width: 90%;
+    margin: 40px auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      padding: 15px 10px;
+      width: 120px;
+      justify-content: center;
+    }
+    p {
+      display: none;
+    }
+  }
+
+  .luxurious-container {
+    width: 90%;
+    flex-direction: column;
+
+    .luxurious-left {
+      width: 100%;
+      align-items: center;
+
+      h1 {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+      }
+      p {
+        width: 50%;
+        text-align: center;
+      }
+      button {
+        padding: 16px 10px;
+        width: 130px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .luxurious-right {
+      width: 100%;
+      .img1 {
+        width: 400px;
+        height: 600px;
+        border-radius: 30px;
+        overflow: hidden;
+      }
+      .img2 ,.img3 {
+        width: 280px;
+        height: 600px;
+        border-radius: 30px;
+        overflow: hidden;
+      }
+
     }
   }
 }

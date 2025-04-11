@@ -17,7 +17,7 @@ export default function Home() {
       <div className="home">
         <div className="home__left">
           <h1>
-            Exquisite design <br /> combined with <br /> functionalities
+            Exquisite design combined with  functionalities
           </h1>
           <p>
             Pellentesque ullamcorper dignissim condimentum <br />
@@ -82,7 +82,7 @@ export default function Home() {
           <h1>Browse by rooms</h1>
           <p>
             Sit massa etiam urna id. Non pulvinar aenean ultrices lectus vitae
-            imperdiet <br /> vulputate a eu. Aliquet ullamcorper leo mi vel sit
+            imperdiet  vulputate a eu. Aliquet ullamcorper leo mi vel sit
             pretium euismod eget.
           </p>
 

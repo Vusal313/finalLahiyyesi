@@ -160,7 +160,6 @@
     .main {
       width: 300px;
       min-width: 200px;
-
       height: 500px;
       background-image: url("../assets/home-hero-image-1.webp");
       background-size: 100% 100%;
@@ -201,21 +200,24 @@
   .goldline {
     width: 80%;
     margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 50px;
+ 
+  }
+
+  .goldline div {
+    width: 150px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    div {
-      width: 100px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      img {
-        width: 100%;
-      }
-    }
+    justify-content: center;
+  }
+
+  .goldline div img {
+    width: 100%;
   }
 }
+
 
 .rooms_container {
   width: 80%;
@@ -330,19 +332,104 @@
 }
 
 @media (max-width: 1115px) and (min-width: 860px) {
-  .home {
-    flex-direction: column-reverse;
+  .container-home {
+    .home {
+      width: 90%;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
 
-    .home__left {
-      width: 100%;
+      .home__left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-right: 1rem;
+        h1 {
+          margin-bottom: 0;
+          margin-top: 2rem;
+          width: 80%;
+          text-align: center;
+        }
+        p {
+          margin-block: 0;
+          width: 100%;
+          text-align: center;
+        }
 
-      h1 {
-        font-size: 1.8rem;
+        .home__contact {
+          display: none;
+        }
+      }
+
+      .home__right {
+        width: 100%;
+
+        .side-cards {
+          align-items: center;
+          justify-content: space-between;
+
+          .discount-card {
+            width: 400px;
+            h3 {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+
+      .product-card {
+        width: 400px;
+        height: 300px;
+      }
+
+      .main {
+        width: 400px;
+        height: 500px;
       }
     }
 
-    .home__right {
+    .home__bestsellers {
+      width: 90%;
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      }
+    }
+  }
+
+  .rooms_container {
+    width: 90%;
+    flex-direction: column;
+    height: fit-content;
+    padding: 30px;
+    text-align: center;
+
+    .room_left {
       width: 100%;
+
+      .room_image {
+        width: 100%;
+      }
+    }
+
+    .room_right {
+      width: 100%;
+
+      .botoom_img {
+        .images {
+          height: 400px;
+        }
+      }
+    }
+  }
+
+  .goldline-home{
+    .goldline{
+      width: 90%;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
