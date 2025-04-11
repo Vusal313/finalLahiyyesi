@@ -5,6 +5,12 @@ import products from "../pages/js/products.js";
 import product from "../pages/js/product.js";
 import Productfurniture from "../pages/products/Productfurniture.jsx";
 import CardList from "../pages/products/CardList.jsx";
+import { ReactComponent as BrandGoldline } from "../assets/brand-goldline.svg";
+import { ReactComponent as BrandMagnolia } from "../assets/brand-magnolia.svg";
+import { ReactComponent as BrandBoltshift } from "../assets/brand-boltshift.svg";
+import { ReactComponent as BrandContrast } from "../assets/brand-contrast.svg";
+import { ReactComponent as BrandAsgardia } from "../assets/brand-asgardia.svg";
+import { ReactComponent as BrandKomplex } from "../assets/brand-komplex.svg";
 export default function Home() {
   return (
     <div className="container-home">
@@ -60,8 +66,9 @@ export default function Home() {
       <div className="home__bestsellers">
         <h2>Bestsellers of the week</h2>
         <p>
-          Quam elementum pulvinar etiam non quam. Faucibus nisl tincidunt eget
-          nullam non nisi elementum sagittis.
+          Quam elementum pulvinar etiam non quam. Faucibus nisl tincidunt eget{" "}
+          <br />
+          nullam non nisi elementum sagittis vitae et leo duis ut diam quam.
         </p>
         <div className="product-grid">
           {products.map((product) => (
@@ -142,19 +149,53 @@ export default function Home() {
 
       <CardList />
 
-
-
       <div className="luxurious-container">
         <div className="luxurious-left">
-          <h1>
-          Luxurious Furniture Starts with the Best Quality Materials
-          </h1>
-          <p>Donec et odio pellentesque diam volutpat commodo amet consectetur adipiscing elit ut aliquam purus vitae et leo duis ut diam quam nulla porttitor. Sodales ut eu sem integer vitae justo eget magna.</p>
+          <h1>Luxurious Furniture Starts with the Best Quality Materials</h1>
+          <p>
+            Donec et odio pellentesque diam volutpat commodo amet consectetur
+            adipiscing elit ut aliquam purus vitae et leo duis ut diam quam
+            nulla porttitor. Sodales ut eu sem integer vitae justo eget magna.
+          </p>
 
           <button>Learn More</button>
         </div>
-        <div className="luxurious-right"></div>
+        <div className="luxurious-right">
+          <div className="img1">
+            <img src={require("../assets/home-mask-image.webp")} alt="#" />
+          </div>
+          <div className="img2">
+            <img src={require("../assets/home-mask-image.webp")} alt="#" />
+          </div>
+          <div className="img3">
+            <img src={require("../assets/home-mask-image.webp")} alt="#" />
+          </div>
+        </div>
       </div>
+
+  <div className="goldline-home">
+  <div className="goldline">
+        <div>
+          <BrandGoldline/>
+        </div>
+        <div>
+          <BrandMagnolia/>
+        </div>
+        <div>
+          <BrandBoltshift/>
+        </div>
+        <div>
+          <BrandContrast/>
+        </div>
+        <div>
+          <BrandAsgardia/>
+        </div>
+        <div>
+          <BrandKomplex/>
+        </div>
+       
+      </div>
+  </div>
     </div>
   );
 }
