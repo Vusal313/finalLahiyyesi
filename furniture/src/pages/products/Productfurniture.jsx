@@ -2,7 +2,7 @@ import React from "react";
 import { Heart, Eye, Shuffle } from "lucide-react";
 import "./Productfurniture.scss";
 const Productfurniture = ({ product }) => {
-  if (!product) return null;
+
   return (
     <div className="modernCard">
       <div className="imageBox">

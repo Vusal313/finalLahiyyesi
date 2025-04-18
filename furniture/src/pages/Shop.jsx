@@ -8,9 +8,7 @@ import sofas from "../assets/storage-category-hero-image.webp";
 import decor from "../assets/chairs-category-hero-image.webp";
 import tables from "../assets/armchairs-category-hero-image.webp";
 import banner from "../assets/shop-hero-image.webp";
-
-import Productfurniture from "./products/Productfurniture";
-
+import ProductList from "../ProductList.jsx";
 const categories = [
   { image: armchairs, title: "Armchairs", count: 5 },
   { image: chairs, title: "Chairs", count: 6 },
@@ -45,13 +43,24 @@ const Shop = () => {
         ))}
       </div>
 
-      <div  className="catagoryContainer">
-        <div className="">
+      <div className="catagoryContainer">
+        <div className="catagoryContaine">
           <FilterPanel />
         </div>
 
-        <div>
-          <Productfurniture/>
+        <div className="catagoryContainerr">
+          <div className="catagoriHeader">
+            <p>Showing 1–12 of 45 results</p>
+            <select onChange={(e) => console.log(e.target.value)}>
+              <option value="all">Default Sorting</option>
+              <option value="electronics"> Sort by popularity</option>
+              <option value="fashion">Sort by average rating</option>
+              <option value="accessories">Sort by latest</option>
+              <option value="books">Sort by low to hig</option>
+              <option value="home"> Sort by hig to low</option>
+            </select>
+          </div>
+          <ProductList />
         </div>
       </div>
     </div>

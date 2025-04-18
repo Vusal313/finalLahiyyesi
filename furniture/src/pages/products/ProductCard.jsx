@@ -3,7 +3,6 @@ import { Heart, Eye, Shuffle } from "lucide-react";
 import "./ProductCard.scss";
 
 const ProductCard = ({ product }) => {
-  if (!product) return null;
   return (
     <div className="modernCard">
       <div className="imageBox">

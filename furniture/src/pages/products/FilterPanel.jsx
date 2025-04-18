@@ -1,5 +1,16 @@
 import React, { useState } from "react";
 import "./FilterPanel.scss";
+import goldline from "../../assets/brand-goldline.svg";
+import maganolli from "../../assets/brand-magnolia.svg";
+import contrast from "../../assets/brand-contrast.svg";
+import boltshift from "../../assets/brand-boltshift.svg";
+import asgardia from "../../assets/brand-asgardia.svg";
+import komplex from "../../assets/brand-komplex.svg";
+import product45 from "../../assets/product-45.webp";
+import product44 from "../../assets/product-44.webp";
+import product43 from "../../assets/product-43.webp";
+import product42 from "../../assets/product-42.webp";
+import product41 from "../../assets/product-41.webp";
 const categories = [
   "Armchairs",
   "Chairs",
@@ -9,6 +20,7 @@ const categories = [
   "Tables",
   "Beds",
 ];
+
 const colors = [
   "Beige",
   "Black",
@@ -20,6 +32,7 @@ const colors = [
   "White",
   "Yellow",
 ];
+
 const materials = [
   "Aluminium",
   "Fabric",
@@ -30,29 +43,57 @@ const materials = [
   "Plastic",
   "Wood",
 ];
+
 const brands = [
-  "Spindle",
-  "KZ Magula",
-  "Bujally",
-  "Orland",
-  "KARENA",
-  "KONGLZ",
+  { img: goldline },
+  { img: maganolli },
+  { img: contrast },
+  { img: boltshift },
+  { img: asgardia },
+  { img: komplex },
 ];
+
 const products = [
-  { name: "Telna Convallis", price: "$1,200.00" },
-  { name: "Hendra Quisque", price: "$800.00" },
-  { name: "Dokura Magna", price: "$1,000.00" },
-  { name: "Felix Vehicula", price: "$740.00" },
-  { name: "Commodo Armacper", price: "$1,250.00" },
+  {
+    name: "Tellus Convallis",
+    price: 1200,
+    oldPrice: 1350,
+    img: product45,
+  },
+  {
+    name: "Hendre Quisque",
+    price: 800,
+    oldPrice: 950,
+    img: product44,
+  },
+  {
+    name: "Dolore Magna",
+    price: 1000,
+    img: product43,
+  },
+  {
+    name: "Felis Vehicula",
+    price: 740,
+    img: product42,
+  },
+  {
+    name: "Commodo Amcorper",
+    price: 1250,
+    img: product41,
+  },
 ];
+
+
 
 const FilterPanel = () => {
   const [minVal, setMinVal] = useState(100);
   const [maxVal, setMaxVal] = useState(900);
   const min = 0;
   const max = 1300;
+
   return (
-    <div className=" filter-panel  w-full md:w-80 p-4 bg-white shadow-md rounded-lg space-y-6">
+    <div className="filter-panel w-full md:w-80 p-4 bg-white shadow-md rounded-lg space-y-6">
+      {/* Price Filter */}
       <div className="range-container">
         <h2 className="font-semibold mb-2">Filter by price</h2>
         <div className="slider">
@@ -91,76 +132,107 @@ const FilterPanel = () => {
       </div>
 
       {/* Category Filter */}
-      <div className="catagoriaContainerr">
-        <h2 className="font-semibold mb-2">Filter by category</h2>
-        {categories.map((cat) => (
-          <div className="catagoriaContainer">
-            <div className="catagoria">
-              <label key={cat} className="block text-sm">
-                {cat}
-              </label>
-              <input type="checkbox" className="mr-2" />
-            </div>
-              <h2>7</h2>
-          </div>
-        ))}
-      </div>
+      <FilterGroup
+        title="Filter by category"
+        items={categories}
+        type="checkbox"
+      />
 
       {/* Color Filter */}
       <div className="color-container">
         <h2 className="font-semibold mb-2">Filter by color</h2>
-        <div className=" color-grid grid grid-cols-4 gap-2">
-          {colors.map((color) => (
-            <div key={color} className="flex items-center space-x-2">
-              <input type="checkbox" />
-              <span className="text-sm">{color}</span>
+        <div className="color-grid">
+          {colors.map((color, index) => (
+            <div key={color} className="color-row">
+              <div className="left-side">
+                <input
+                  type="radio"
+                  name="color"
+                  id={`color-${index}`}
+                  className="color-radio"
+                  style={{ backgroundColor: color.toLowerCase() }}
+                />
+                <label htmlFor={`color-${index}`} className="color-name">
+                  {color}
+                </label>
+              </div>
+              <div className="color-count">
+                {Math.floor(Math.random() * 10)}
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Material Filter */}
-      <div>
-        <h2 className="font-semibold mb-2">Filter by material</h2>
-        {materials.map((mat) => (
-          <label key={mat} className="block text-sm">
-            <input type="checkbox" className="mr-2" />
-            {mat}
-          </label>
-        ))}
-      </div>
+      <FilterGroup
+        title="Filter by material"
+        items={materials}
+        type="checkbox"
+      />
 
       {/* Brand Filter */}
-      <div>
-        <h2 className="font-semibold mb-2">Filter by brand</h2>
-        <div className="flex flex-wrap gap-2">
-          {brands.map((brand) => (
-            <button
-              key={brand}
-              className="bg-gray-100 px-2 py-1 rounded text-sm hover:bg-gray-200"
-            >
-              {brand}
-            </button>
-          ))}
+      <div className="filter-panell brand-filterr w-full md:w-80 p-4 bg-white shadow-md rounded-lg space-y-6">
+        {/* Brand Filter */}
+        <div className="brand-filter">
+          <h2>Filter by brand</h2>
+          <div className="brand-grid">
+            {brands.map((brand, index) => (
+              <div key={index} className="brand-container">
+                <img
+                  src={brand.img}
+                  alt={`Brand ${index + 1}`}
+                  className="brand-img"
+                />
+                <div className="brand-name">Brand {index + 1}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Best Selling Products */}
-      <div>
-        <h2 className="font-semibold mb-2">Best selling products</h2>
-        <ul className="space-y-2">
-          {products.map((prod) => (
-            <li key={prod.name} className="flex justify-between text-sm">
-              <span>{prod.name}</span>
-              <span>{prod.price}</span>
+      <div className="best-selling">
+        <h2>Best selling products</h2>
+        <ul className="product-list">
+          {products.map((product) => (
+            <li key={product.name} className="product-item">
+              <img src={product.img} alt={product.name} />
+              <div className="product-info">
+                <h3>{product.name}</h3>
+                <div className="prices">
+                  <span className="price">${product.price.toFixed(2)}</span>
+                  {product.oldPrice && (
+                    <span className="old-price">
+                      ${product.oldPrice.toFixed(2)}
+                    </span>
+                  )}
+                </div>
+              </div>
             </li>
           ))}
         </ul>
       </div>
-
-      
     </div>
   );
 };
+
+// ✅ Reusable filter group component
+const FilterGroup = ({ title, items, type }) => (
+  <div className="color-container">
+    <h2 className="font-semibold mb-2">{title}</h2>
+    <div className="color-grid">
+      {items.map((item) => (
+        <div key={item} className="color-row">
+          <div className="left-side">
+            <input type={type} />
+            <span className="color-name">{item}</span>
+          </div>
+          <div className="color-count">{Math.floor(Math.random() * 10)}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
 export default FilterPanel;
