@@ -9,6 +9,7 @@ import decor from "../assets/chairs-category-hero-image.webp";
 import tables from "../assets/armchairs-category-hero-image.webp";
 import banner from "../assets/shop-hero-image.webp";
 import ProductList from "../ProductList.jsx";
+import { FaAddressBook, FaGift, FaRedRiver, FaWallet } from "react-icons/fa";
 const categories = [
   { image: armchairs, title: "Armchairs", count: 5 },
   { image: chairs, title: "Chairs", count: 6 },
@@ -61,6 +62,45 @@ const Shop = () => {
             </select>
           </div>
           <ProductList />
+
+          <div className="nextBtn">
+            <div className="left">
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+            </div>
+            <div className="right">
+              <button>Next {">"}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="pulvinar">
+        <div>
+          <FaWallet size={40} style={{ color: "#333", margin: "10px" }} />
+          <h2>Secure Payments</h2>
+          <p>Tellus gravida ipsum aut facilisis tempus at et aliquam estsem.</p>
+        </div>
+        <div>
+          <FaRedRiver size={40} style={{ color: "#333", margin: "10px" }} />
+          <h2>Free Shipping</h2>
+          <p>
+            Non pulvinar aenean ultrices lectus vitae imperdiet vulputate a eu.
+          </p>
+        </div>
+        <div>
+          <FaGift size={40} style={{ color: "#333", margin: "10px" }} />
+          <h2>SGifts & Sales</h2>
+          <p>Aliquet ullamcorper leo mi vel sit pretium euismod eget libero.</p>
+        </div>
+        <div>
+          <FaAddressBook size={40} style={{ color: "#333", margin: "10px" }} />
+          <h2>24/7 Support</h2>
+          <p>
+            Nullam iaculis vestibulum arcu id urnain pellentesque volutpat quis.
+          </p>
         </div>
       </div>
     </div>
