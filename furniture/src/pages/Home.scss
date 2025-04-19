@@ -203,7 +203,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 50px;
- 
   }
 
   .goldline div {
@@ -217,7 +216,6 @@
     width: 100%;
   }
 }
-
 
 .rooms_container {
   width: 80%;
@@ -426,8 +424,118 @@
     }
   }
 
-  .goldline-home{
-    .goldline{
+  .goldline-home {
+    .goldline {
+      width: 90%;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media (max-width: 860px) and (min-width: 300px) {
+  .container-home {
+    .home {
+      width: 90%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+
+      .home__left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-right: 1rem;
+        h1 {
+          margin-bottom: 0;
+          margin-top: 2rem;
+          width: 80%;
+          text-align: center;
+        }
+        p {
+          margin-block: 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        .home__contact {
+          display: none;
+        }
+      }
+
+      .home__right {
+        width: 100%;
+        flex-direction: column;
+
+        .side-cards {
+          align-items: center;
+          justify-content: space-between;
+
+          .discount-card {
+            width: 80%;
+            h3 {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+
+      .product-card {
+        width: 80%;
+        height: 500px;
+        object-fit: cover;
+        
+      }
+
+      .main {
+        width: 80%;
+        height: 500px;
+        margin: 30px auto;
+
+      }
+    }
+
+    .home__bestsellers {
+      width: 90%;
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      }
+    }
+  }
+
+  .rooms_container {
+    width: 90%;
+    flex-direction: column;
+    height: fit-content;
+    padding: 30px;
+    text-align: center;
+
+    .room_left {
+      width: 100%;
+
+      .room_image {
+        width: 100%;
+      }
+    }
+
+    .room_right {
+      width: 100%;
+
+      .botoom_img {
+        flex-direction: column;
+        .images {
+          height: 400px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .goldline-home {
+    .goldline {
       width: 90%;
       grid-template-columns: repeat(3, 1fr);
     }
