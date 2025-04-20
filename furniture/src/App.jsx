@@ -6,6 +6,7 @@ import Shop from "./pages/Shop";
 import About from "./pages/About";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
+import ProductDetail from "./ProductDetail"; // bu satırı ekle
 
 function Layout({ children }) {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/product/:id" element={<ProductDetail />} /> {/* Bu satır eklendi */}
         </Routes>
       </Layout>
     </Router>

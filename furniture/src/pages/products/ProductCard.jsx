@@ -1,10 +1,19 @@
 import React from "react";
 import { Heart, Eye, Shuffle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import "./ProductCard.scss";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (product.id === 1) {
+      navigate(`/product/${product.id}`);
+    }
+  };
+
   return (
-    <div className="modernCard">
+    <div className="modernCard" onClick={handleClick} style={{ cursor: product.id === 1 ? "pointer" : "default" }}>
       <div className="imageBox">
         <img src={product.image} alt={product.name} />
         <div className="iconGroup">
@@ -23,7 +32,6 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
     </div>
-    
   );
 };
 
