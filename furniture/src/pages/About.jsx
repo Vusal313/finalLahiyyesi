@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./About.scss";
-import banner from "../assets/shop-hero-image.webp";
+import banner from "../assets/armchairs-category-hero-image.webp";
 import videoCover from "../assets/home-mask-image.webp";
 
 import { FaPlay } from "react-icons/fa";
@@ -12,6 +12,14 @@ import img5 from "../assets/team-member-5.webp";
 import img6 from "../assets/team-member-6.webp";
 
 const images = [img1, img2, img3, img4, img5, img6];
+const names = [
+  "Libby Lynch",
+  "Elvis Morgan",
+  "Aron Bowers",
+  "Melany Ellis",
+  "Jordyn Beck",
+  "Emilie Beck",
+];
 
 const About = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -72,7 +80,7 @@ const About = () => {
           <div className="videoPlaceholder" onClick={handlePlayClick}>
             <img src={videoCover} alt="Video Cover" />
             <div className="playButton">
-              <FaPlay size={40} color="#fff" />
+              <FaPlay size={30} color="#BBBDC1" />
             </div>
           </div>
         ) : (
@@ -90,17 +98,34 @@ const About = () => {
           </div>
         )}
       </div>
-
-      <div className="ourTeam">
-        {images.map((img, index) => (
-          <div className="teamCard" key={index}>
-            <img src={img} alt={`Team member ${index + 1}`} />
-            <div className="teamInfo">
-              <h4>Libby Lynch</h4>
-              <p>Seller</p>
+      <div className="ourteamContainer">
+        <h1>Our team</h1>
+        <p>
+          Quam elementum pulvinar etiam non quam. Faucibus nisl tincidunt eget
+          nullam non nisi elementum sagittis vitae et leo duis ut diam quam.
+        </p>
+        <div className="ourTeam">
+          {images.map((img, index) => (
+            <div className="teamCard" key={index}>
+              <img src={img} alt={`Team member ${index + 1}`} />
+              <div className="teamInfo">
+                <h4>{names[index]}</h4>
+                <p>Seller</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <div className="lifetime">
+        <div className="lifetimeLeft">
+          <h2>Furniture that will last a lifetime</h2>
+          <p>Sit massa etiam urna id. Non pulvinar aenean ultrices lectus vitae imperdiet vulputate a eu. Aliquet ullamcorper leo mi vel sit pretium euismod eget libero. Nullam iaculis vestibulum arcu id urna. In pellentesque volutpat quis condimentum lectus</p>
+          <button>Learn More →</button>
+        </div>
+        <div className="lifetimeRight">
+        <img src={require("../assets/about-us-cta-image.webp")} alt="#" />
+        </div>
       </div>
     </div>
   );
