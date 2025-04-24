@@ -390,9 +390,11 @@
 @media (max-width: 1115px) {
   .burger-icon {
     display: flex;
+    top: 35px;
+    left: 40px;
   }
-
   .filter-panel-wrapper {
+    width: 20%;
     height: 100%;
     position: relative;
 
@@ -435,6 +437,11 @@
 }
 
 @media (max-width: 870px) {
+
+  .burger-icon{
+    top: 34px;
+    left: 20px;
+  }
   .filter-panel {
     width: 50%;
     right: -100%;

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Home.scss";
 import ProductCard from "../pages/products/ProductCard";
 import products from "../pages/js/products.js";
 import product from "../pages/js/product.js";
@@ -11,14 +10,14 @@ import { ReactComponent as BrandBoltshift } from "../assets/brand-boltshift.svg"
 import { ReactComponent as BrandContrast } from "../assets/brand-contrast.svg";
 import { ReactComponent as BrandAsgardia } from "../assets/brand-asgardia.svg";
 import { ReactComponent as BrandKomplex } from "../assets/brand-komplex.svg";
+import "./Home.scss";
+
 export default function Home() {
   return (
     <div className="container-home">
       <div className="home">
         <div className="home__left">
-          <h1>
-            Exquisite design combined with  functionalities
-          </h1>
+          <h1>Exquisite design combined with functionalities</h1>
           <p>
             Pellentesque ullamcorper dignissim condimentum <br />
             volutpat consequat mauris nunc lacinia quis.
@@ -82,8 +81,8 @@ export default function Home() {
           <h1>Browse by rooms</h1>
           <p>
             Sit massa etiam urna id. Non pulvinar aenean ultrices lectus vitae
-            imperdiet  vulputate a eu. Aliquet ullamcorper leo mi vel sit
-            pretium euismod eget.
+            imperdiet vulputate a eu. Aliquet ullamcorper leo mi vel sit pretium
+            euismod eget.
           </p>
 
           <div className="room_image">
@@ -173,29 +172,28 @@ export default function Home() {
         </div>
       </div>
 
-  <div className="goldline-home">
-  <div className="goldline">
-        <div>
-          <BrandGoldline/>
+      <div className="goldline-home">
+        <div className="goldline">
+          <div>
+            <BrandGoldline />
+          </div>
+          <div>
+            <BrandMagnolia />
+          </div>
+          <div>
+            <BrandBoltshift />
+          </div>
+          <div>
+            <BrandContrast />
+          </div>
+          <div>
+            <BrandAsgardia />
+          </div>
+          <div>
+            <BrandKomplex />
+          </div>
         </div>
-        <div>
-          <BrandMagnolia/>
-        </div>
-        <div>
-          <BrandBoltshift/>
-        </div>
-        <div>
-          <BrandContrast/>
-        </div>
-        <div>
-          <BrandAsgardia/>
-        </div>
-        <div>
-          <BrandKomplex/>
-        </div>
-       
       </div>
-  </div>
     </div>
   );
 }

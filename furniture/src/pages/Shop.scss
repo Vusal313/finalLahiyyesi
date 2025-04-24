@@ -77,7 +77,7 @@
   width: 100%;
   margin-top: 30px;
   .catagoryContaine {
-    width: 400px;
+    width: 20%;
   }
   .catagoryContainerr {
     display: flex;
@@ -233,21 +233,28 @@
 }
 @media (max-width: 860px) and (min-width: 300px) {
   .shop__categories {
-   display: none;
+    display: none;
   }
 
   .catagoryContainer {
     flex-direction: column;
+    justify-content: center;
 
     .catagoryContainerr {
-      width: 100%;
+      width: 350px;
     }
 
     .catagoriHeader {
-      width: 100%;
+      width: 90%;
+      display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-right: 30px;
+
+      select{
+        height: 33px;
+        margin-top: 5px;
+        
+      }
 
       p {
         display: none;
