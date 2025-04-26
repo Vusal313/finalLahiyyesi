@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
         <p className="category">{product.category}</p>
         <div className="bottom">
           <span className="price">${product.price.toFixed(2)}</span>
-          <button className="addBtn">Add to cart</button>
+          <button className="addBtn">Ado cart</button>
         </div>
       </div>
     </div>

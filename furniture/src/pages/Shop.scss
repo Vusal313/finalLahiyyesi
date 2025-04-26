@@ -130,7 +130,7 @@
 }
 
 .nextBtn {
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -238,22 +238,21 @@
 
   .catagoryContainer {
     flex-direction: column;
-    justify-content: center;
-
+    align-items: center;
     .catagoryContainerr {
-      width: 350px;
+      width: 100%;
     }
 
     .catagoriHeader {
-      width: 90%;
+      width: 80%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
 
-      select{
+      select {
         height: 33px;
         margin-top: 5px;
-        
+        width: 200px;
       }
 
       p {
